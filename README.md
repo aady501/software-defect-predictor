@@ -1,4 +1,6 @@
-# Identify defect (bug) inducing commits in your Git based software repository
+# Identify Bugs *Early* in your Software Projects
+<img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/The_Early_Bird..._%28165702619%29.jpg" width="250">
+
 
 ## 1. Setup
 
