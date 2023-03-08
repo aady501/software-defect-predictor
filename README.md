@@ -1,4 +1,4 @@
-# defectPredictor
+# software-defect-predictor
 
 The main function takes one input: repository_url and outputs commits on stdout
 
