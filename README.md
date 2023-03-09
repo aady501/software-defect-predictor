@@ -4,8 +4,8 @@
 
 ## 1. Setup
 
-Clone this repository to your local environment
-`pip install requirements.txt` (requires python 3+)
+* Clone this repository to your local environment
+* `pip install requirements.txt` (requires python 3+)
 
 ## 2. Usage
 The main function just takes one input: repository_url (string) 
