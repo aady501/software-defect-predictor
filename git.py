@@ -232,7 +232,7 @@ class Git():
         return statProperties
     # End stats
 
-    def log(self, repo, firstSync):
+    def log(self, repo):
         """
         log(): Repository, Boolean -> Dictionary
         arguments: repo Repository: the repository to clone

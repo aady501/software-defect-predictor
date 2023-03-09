@@ -5,20 +5,24 @@ date: October 2013
 description: Holds the repository abstraction class
 """
 import shutil
-#from ingester.git import *
-#from orm.commit import *
+# from ingester.git import *
+# from orm.commit import *
 
 from datetime import datetime
 import os
 import logging
 
+import pandas as pd
+
 from git import Git
+
 
 class Repo():
 
-    def __init__(self,url, id):
+    def __init__(self, url, id):
         self.id = id
         self.url = url
+
 
 class LocalRepository():
     """
@@ -28,6 +32,7 @@ class LocalRepository():
     repo = None
     adapter = None
     start_date = None
+
     def __init__(self, repo_url):
         """
         __init__(path): String -> NoneType
@@ -39,7 +44,7 @@ class LocalRepository():
 
         self.commits = {}
 
-        self.repo = Repo(repo_url,'1')
+        self.repo = Repo(repo_url, '1')
 
     def sync(self):
         """
@@ -50,9 +55,10 @@ class LocalRepository():
         # TODO: Error checking.
         firstSync = self.syncRepoFiles()
         # self.syncCommits(firstSync)
-        self.printCommits(firstSync)
+        # self.printCommits(firstSync)
+        self.createdf()
         # Set the date AFTER it has been ingested and synced.
-        #self.repo.ingestion_date = self.start_date
+        # self.repo.ingestion_date = self.start_date
 
     def syncRepoFiles(self):
         """
@@ -67,13 +73,12 @@ class LocalRepository():
         path = os.path.dirname(__file__) + self.adapter.REPO_DIRECTORY + self.repo.id
         # See if repo has already been downloaded, if it is pull, if not clone
         if os.path.isdir(path):
-              shutil.rmtree(path)
-        os.makedirs(path,)
+            shutil.rmtree(path)
+        os.makedirs(path, )
         self.adapter.clone(self.adapter, self.repo)
         firstSync = True
 
         return firstSync
-
 
     def printCommits(self, firstSync):
         """
@@ -83,7 +88,7 @@ class LocalRepository():
         arguments: firstSync Boolean: whether to sync all commits or after the
             ingestion date
         """
-        commits = self.adapter.log(self.adapter, self.repo, firstSync)
+        commits = self.adapter.log(self.adapter, self.repo)
         # commitsSession = Session()
         # logging.info('Saving commits to the database...')
         for commitDict in commits:
@@ -91,3 +96,8 @@ class LocalRepository():
         # commitsSession.commit()
         # commitsSession.close()
         # logging.info('Done saving commits to the database.')
+
+    def createdf(self):
+        commits = self.adapter.log(self.adapter, self.repo)
+        df = pd.DataFrame(commits)
+        return df
