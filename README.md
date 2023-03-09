@@ -1,13 +1,18 @@
-# Identify Bugs *Early* in your Software Projects
+# Identify Buggy Commits *Early* in your Software Repositories
 <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/The_Early_Bird..._%28165702619%29.jpg" width="250">
 
 
 ## 1. Setup
 
-## 2. Usage
-The main function takes one input: repository_url and outputs commits on stdout
+* Clone this repository to your local environment
+* `pip install requirements.txt` (requires python 3+)
 
-Run: `main.py repository_url`
+## 2. Usage
+The main function just takes one input: repository_url (string) 
+
+Run: `main.py <paste your git based repository url for which you wish to classify the commits>`
+
+Output: Writes `predictions.csv` in the current working directory. 
 
 ## References
 
