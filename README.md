@@ -5,9 +5,11 @@
 ## 1. Setup
 
 ## 2. Usage
-The main function takes one input: repository_url and outputs commits on stdout
+The main function just takes one input: repository_url (string) 
 
-Run: `main.py repository_url`
+Run: `main.py <paste your git based repository url for which you wish to classify the commits>`
+
+Output: Writes `predictions.csv` in the current working directory. 
 
 ## References
 
