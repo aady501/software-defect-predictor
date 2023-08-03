@@ -23,3 +23,5 @@ This repository is developed based on the research (and code) by:
 * [Shrikanth, N. C.](https://snaraya7.github.io/), and Tim Menzies. "Assessing the Early Bird Heuristic (for Predicting Project Quality)." ACM Transactions on Software Engineering and Methodology (2023).
 
 * Rosen, Christoffer, Ben Grawi, and Emad Shihab. "Commit guru: analytics and risk prediction of software commits." Proceedings of the 2015 10th joint meeting on foundations of software engineering. 2015.
+
+* Training data (labelled data) for some open source repositories can be found here: https://github.com/snaraya7/early-bird/tree/master/data
